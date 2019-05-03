@@ -1,0 +1,18 @@
+""" Find the minimum monthly payment needed to pay off a credit card
+that has a specified balance and interest rate.
+
+The beginning monthlyPayment is $10 and the algorithm adjusts in increments
+of 10 until it finds a suitable monthly payment"""
+
+def oneYearDebt(balance, annualInterestRate, monthlyPayment):
+    balance_2 = balance
+    for month in range(12):
+        balance_2 -= monthlyPayment
+        balance_2 = balance_2 + ((annualInterestRate/12) * balance_2)
+    if balance_2 > 0:
+        monthlyPayment += 10
+        return oneYearDebt(balance, annualInterestRate, monthlyPayment)
+    else:
+        return monthlyPayment
+
+print('Lowest Payment:', oneYearDebt(balance, annualInterestRate, 10))
