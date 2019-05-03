@@ -1,0 +1,23 @@
+""" This program finds the remaining balance on a credit card
+after one year.
+
+The monthlyPaymentRate is calculated at the beginning of each month
+and acts as the minimum payment based on that amount.
+
+The program outputs what the remaining balance would be, taking into account
+interest and changing minimum payments
+"""
+
+
+
+def credit_payment(balance, annualInterestRate, monthlyPaymentRate):
+    monthly_interest_rate = annualInterestRate / 12
+    for month in range(12):
+        min_month_payment = balance * monthlyPaymentRate
+        balance -= min_month_payment
+        balance = balance + (monthly_interest_rate * balance)
+        print('Month', month+1, 'Remaining balance:', balance)
+    return round(balance, 2)
+        
+
+print(credit_payment(484, 0.2, 0.04))
