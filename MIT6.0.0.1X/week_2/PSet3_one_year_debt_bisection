@@ -1,0 +1,24 @@
+""" Find the minimum monthly payment needed with a balance, annual interest rate,
+and a starting estimate of the monthly payment.
+
+The following program gets a much more percise estimate of the necessary monthly payment using bisection searching.
+"""
+
+def oneYearDebt_bisection(balance, annualInterestRate, monthlyPayment):
+    balance_2 = balance
+    monthlyInterest = annualInterestRate/12
+    rate_power = 1 + (monthlyInterest**12)
+    good_enough = .04
+    for month in range(12):
+        balance_2 -= monthlyPayment
+        balance_2 = balance_2 + (monthlyInterest * balance_2)
+    if balance_2 > good_enough:
+        monthlyPayment = balance_2/12 + monthlyPayment
+        return oneYearDebt_bisection(balance, annualInterestRate, monthlyPayment)
+    elif balance_2 < 0:
+        monthlyPayment = monthlyPayment + balance_2/12
+        return oneYearDebt_bisection(balance, annualInterestRate, monthlyPayment)
+    else:
+        return monthlyPayment
+
+print(oneYearDebt_bisection(560, .24, 10))
