@@ -4,7 +4,7 @@ Hey everyone! This is where I'm going to be submitting my Python work to keep tr
 
 I'm looking to work in Data Consulting for a large Consulting firm. I am attending the Institute for Advanced Analytics as a Masters of Science in Analytics Candidate at NC State University, graduating in May 2020.
 
-Currently: Working on a Blog Post using Baseball Data and Simulations to predict the likelihood of Home Run trends that are happening in the MLB at the moment!
+Currently: Working on using a Kaggle Dataset to predict what makes songs popular using given metadata.
 
 Any recommendations for projects I should work on relating to Data Visualization and Automating Processes are appreciated!
 
